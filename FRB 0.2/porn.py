@@ -1,3 +1,10 @@
+import asyncio
+import discord
+from bs4 import BeautifulSoup
+import requests
+import re
+import os
+
 from discord.ext import commands
 from discord.ext.tasks import loop
 
