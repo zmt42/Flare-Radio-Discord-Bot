@@ -110,11 +110,13 @@ async def background_task():
         await asyncio.sleep(1)
 
 
+       
 @bot.event
 async def on_ready():
     print('Logged in as {0} ({0.id})'.format(bot.user))
     print('------')
-
+    setDJ()
+    print("DJ set")
 bot.add_cog(Music(bot))
 bot.loop.create_task(background_task())
 bot.run('NTkzMTcxNTEzNTI4ODExNTIx.XRKEfA.aDM34Xv_9xaQQqoEYkp4dnP8Yb0')
