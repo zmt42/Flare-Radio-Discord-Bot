@@ -3,7 +3,7 @@ import discord
 
 import re
 import os
-import  * from processing
+from processing import *
 
 from discord.ext import commands
 from discord.ext.tasks import loop
