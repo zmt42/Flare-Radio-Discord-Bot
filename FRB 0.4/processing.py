@@ -6,7 +6,13 @@ import json
 url = 'https://orion.shoutca.st/rpc/flareradio/streaminfo.get'
 
 def readData():
-    return json.loads(urllib.request.urlopen(url).read().decode('utf-8'))["data"][0]
+    while True:
+        try:
+            ok = json.loads(urllib.request.urlopen(url).read().decode('utf-8'))["data"][0]
+        except:
+            continue
+        return ok
+        break
 
 def getStat():
   data = readData()

@@ -3,7 +3,7 @@ import discord
 
 import re
 import os
-from processing import *
+import  * from processing
 
 from discord.ext import commands
 from discord.ext.tasks import loop
@@ -61,7 +61,13 @@ class Music(commands.Cog):
       f = open(str(ctx.message.guild.id)+".data","w")
       f.write(channel_id)
       f.close()
-      
+     
+    @commands.command()
+    async def request(self, ctx, *, song):
+        channel = bot.get_channel(468546428365701131)
+        await channel.send("Song request: "+ str(song) + " by "+ str(ctx.message.author.name))
+    
+    
     @commands.command()
     async def setVoice(self, ctx, *, voice):
       voice_id = str(re.findall('\d+', voice)[0])
@@ -80,7 +86,8 @@ class Music(commands.Cog):
                 raise commands.CommandError("Author not connected to a voice channel.")
         elif ctx.voice_client.is_playing():
             ctx.voice_client.stop()
-
+        await ctx.send("Song request sent!")
+        
 bot = commands.Bot(command_prefix=commands.when_mentioned_or("b!"),
                    description='FLARE RADIO PLAYER')
 
